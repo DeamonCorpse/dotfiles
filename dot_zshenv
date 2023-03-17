@@ -20,16 +20,29 @@
 # V 1.3     Corrected typing mistakes, combined directories,
 #           sources & exports
 # V 1.4     Added iTerm2 as terminal, added mail
-# V 1.5     Added HISTTIMEFORMAT
+# V 1.5     Added HISTTIMEFORMAT, XDG: DATA_HOME, STATE_HOME,
+#           CACHE_HOME
 #-----------------------------------------------------------#
 
 #----- DIRECTORIES, SOURCES & EXPORTS
+# Defines the base directory relative to which user-specific data
+# files should be stored
+export XDG_DATA_HOME=$HOME/.local/share
+
 # Defines the directory where user specific config files
 # should be stored
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# Defines the base directory relative to which user-specific state
+# files should be stored
+export XDG_STATE_HOME=$HOME/.local/state
+
+# Defines the base directory relative to which user-specific
+# non-essential data files should be stored
+export XDG_CACHE_HOME=$HOME/.cache
+
 # Defines where dotfiles should be stored
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh" #&& source $ZDOTDIR/.zprofile
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh" && source $ZDOTDIR/.zprofile
 
 # Defines where the completion dumped files are stored
 export zcompdump=$ZDOTDIR/.zcompdump && source $ZDOTDIR/.zcompdump
