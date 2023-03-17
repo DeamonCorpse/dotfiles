@@ -1,0 +1,163 @@
+#-------------------- STARSHIP CONFIG V 1.2 --------------------#
+# ALL options are explained at
+#   https://starship.rs/config
+#   https://starship.rs/advanced-config/#custom-pre-prompt-and-pre-execution-commands-in-bash
+#
+#--- ICONS
+# https://www.nerdfonts.com/cheat-sheet
+#
+#--- TIME FORMAT
+# https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html
+#
+#----- VERSION HISTORY
+# V 1.0.    Initial
+# V 1.1     Tweaks to colour scheme
+# V 1.2     Updates to the Prompt Layout & Removed disabled items
+#--------------------------------------------------------------#
+
+#----- PROMPT
+# No new line at the start of the prompt
+add_newline = true
+
+#--- LEFT Prompt Format
+format = """
+[](#121212)\
+$env_var$shell\
+[](bg:#121212 fg:#3E4C59)\
+$sudo\
+$username\
+$localip\
+$hostname\
+[](bg:#3E4C59 fg:#657B83)\
+$directory\
+[](#657B83)\
+$character
+[ ](#4CAF50)"""
+
+#--- RIGHT Prompt Format
+right_format = """
+$git_branch $git_status\
+$docker_context\
+$cmd_duration\
+$time"""
+
+#----- PACKAGE MODULEs
+#--- ENABLED
+[line_break]
+enabled = true
+
+#--- LEFT SIDE
+[env_var.STARSHIP_DISTRO]
+disabled = false
+format = '[$env_value ]($style)'
+style = 'bg:#121212 fg:#666666'
+variable = 'STARSHIP_DISTRO'
+
+[shell]
+disabled = false
+style = 'bg:#121212 italic fg:#666666'
+format = '[-$indicator- ]($style)'
+bash_indicator = 'bash'
+zsh_indicator = 'zsh'
+powershell_indicator = 'ps'
+cmd_indicator = 'cmd'
+unknown_indicator = '?'
+
+[sudo]
+disabled = false
+format = '[$symbol]($style)'
+symbol = '🆂'
+style = 'bg:#3E4C59 fg:#28B9FF'
+allow_windows = false
+
+[username]
+disabled = false
+style_root = 'bg:#3E4C59 fg:#28B9FF'
+style_user = 'bg:#3E4C59 fg:#F1F1F1'
+show_always = true
+format = '[🜏 $user]($style)'
+
+[hostname]
+disabled = false
+ssh_only = false
+ssh_symbol = 'ₛₛₕ'
+format = '[{$hostname}$ssh_symbol]($style)'
+trim_at = '.'
+style = 'bg:#3E4C59 italic fg:#28B9FF'
+
+[localip]
+disabled = false
+ssh_only = true
+style = 'bg:#3E4C59 italic fg:#28B9FF'
+format = '[@$localipv4]($style)'
+
+[directory]
+disabled = false
+style = 'bg:#657B83 fg:#CBD2D9'
+read_only_style = 'bg:#657B83 fg:#EAF600'
+format = '[$path ]($style)[$read_only]($read_only_style)'
+truncation_length = 10
+truncation_symbol = '.../'
+use_logical_path = true
+use_os_path_sep = false
+read_only = ' '
+
+[directory.substitutions]
+"~/Documents" = ''
+"~/documents" = ''
+"~/Docker" = ''
+"~/docker" = ''
+"~/Downloads" = ''
+"~/downloads" = ''
+"~" = ''
+"~/Music" = ''
+"~/music" = ''
+"~/Movies" = ''
+"~/movies" = ''
+"~/Pictures" = ''
+"~/pictures" = ''
+"~/Videos" = ''
+"~/videos" = ''
+".config" = ''
+
+[character]
+success_symbol = "[ ✔](green)"
+error_symbol = "[ ✘](red)"
+
+#--- RIGHT SIDE
+[git_branch]
+disabled = false
+always_show_remote = false
+symbol = ' '
+style = 'italic fg:#C9510C'
+format = '[$symbol$branch(:$remote_name $remote_branch)]($style)'
+truncation_length = 10
+truncation_symbol = '.../'
+
+[git_status]
+disabled = false
+style = 'fg:#C9510C italic'
+format = '[$all_status]($style)'
+conflicted = ':${count} '
+ahead = '⇡:${count} '
+behind = '⇣:${count} '
+diverged = '⇕:${count} '
+untracked = '?:${count} '
+modified = '!:${count} ' 
+staged = '+:${count} '
+deleted = ':✘${count} '
+
+[cmd_duration]
+disabled = false
+style = 'italic fg:#616E7C'
+format = '[ $duration]($style)'
+min_time = 500 # in ms
+show_milliseconds = false
+
+[time]
+disabled = false
+style = 'italic fg:#616E7C'
+format = "[ $time]($style)"
+use_12hr = false
+time_format = "%R"
+utc_time_offset = "local"

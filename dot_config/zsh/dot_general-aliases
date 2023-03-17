@@ -1,0 +1,181 @@
+#----------------- GENERAL ALIASES V 1.1 -----------------#
+# Located at $ZDOTDIR.general-aliases
+#
+#----- VERSION HISTORY
+# V 1.0     Initial
+# V 1.1     Cosmetic changes
+#---------------------------------------------------------#
+
+#---------- SYSTEM
+#----- HARDWARE
+# Get info about file systemn disk space usage
+alias df='sudo df'
+
+# Create and manipulate partition tables
+alias fdisk='sudo fdisk'
+
+# Get amount of free and used disk space
+alias free='sudo free'
+
+# Get detailed harware info
+alias hwinfo='sudo hwinfo'
+
+# Get info about available block devices
+alias lsblk='sudo lsblk'
+
+# Get cpu info
+alias lscpu='sudo lscpu'
+
+# Get detailed hardware info
+alias lshw='sudo lshw'
+
+# Get pci info
+alias lspci='sudo lspci'
+
+# Get scsi info
+alias lsscsi='sudo lsscsi'
+
+# Get usb info
+alias lsusb='sudo lsusb'
+
+# Mount a file system
+alias mount='sudo mount'
+
+# Get amount of disk space available
+alias pydf='sudo pydf'
+
+
+#----- MISC
+# Print distro details
+alias distro='cat /etc/*-release'
+
+# Swith to Administrator user
+alias sua='su Administrator'
+
+# Immediately Shutdown system
+alias shutdown='sudo shutdown now'
+
+# Reboot system
+alias restart='sudo reboot'
+
+# Clear the screen
+alias cl='clear'
+
+
+#---------- FILES & DIRECTORIES
+#----- CD
+# cd 1 directory up
+alias cd1='cd ..'
+
+# cd 2 directories up
+alias cd2='cd ../..'
+
+# cd 3 directories up
+alias cd3='cd ../../..'
+
+
+#----- FOLDERS
+# Move to Data directory
+#alias data='cd /Volumes/Data/'
+
+
+#----- LS
+# Using exa. ref: https://github.com/ogham/exa#command-line-options
+# List all files, including '.' '..'
+alias la='exa -lama --group-directories-first --color=always --icons'
+
+# List all files
+alias ls='exa -lam --group-directories-first --color=always --icons'
+
+# List files (short format)
+alias ls2='exa -m --group-directories-first --color=always --icons'
+
+# List only directories
+alias ld='exa -D --color=always --icons'
+
+
+#----- MV / RM
+# Move file in interactive mode
+#alias mv='mv -i'
+
+# Remove file in interactive mode
+#alias rm='rm -i'
+
+
+#----- OTHERS
+# Edit .zshrc in vs code
+alias zshrc='code ~/.zshrc'
+
+# Refresh/restart terminal
+alias reload='source ~/.zshrc'
+
+# Edit sshd_config file
+alias sshd='sudo nano /etc/ssh/sshd_config'
+
+
+#---------- SOFTWARE
+#----- DOCKER
+# Going inside a container
+alias docke='docker exec -it'
+
+# Display the information about a container
+alias docki="docker inspect"
+
+# List images installed
+alias dockimg='docker images'
+
+# List running containers
+alias dockps='docker ps'
+
+# Run a container
+alias dockr='docker run'
+
+
+#----- GIT
+# Add file to staging area
+alias ga='git add'
+
+# Add and commit all files with a comming message
+alias gac='git add . && git commit -m'
+
+# Commit file with a message
+alias gc='git commit -m'
+
+# List differences between local and remote repo
+alias gdiff='git diff'
+
+# Get repo logs
+alias gl='git log'
+
+# Get formatted repo log
+alias glo='git log --pretty="oneline"'
+
+# Get repo logs
+alias glol='git log --graph --oneline --decorate'
+
+# Push changes
+alias gp='git push'
+
+# Push changes from the local `origin` branch to main remote repo branch
+alias gpo='git push origin'
+
+# Pull changes from main repo
+alias gpo='git pull origin'
+
+# Add remote main repo
+alias grao='git remote add origin'
+
+# get repo status
+alias gstat='git status'
+
+# Git Bare Directory - macOS
+#alias dotfiles="/usr/bin/git --git-dir=$HOME/git/mac-dotfiles.git/ --work-tree=$HOME"
+
+# Git Bare Directory - Linux
+alias dotfiles="/usr/bin/git --git-dir=$HOME/git/linux-dotfiles.git/ --work-tree=$HOME"
+
+
+#----- NANO
+# ref: https://www.nano-editor.org/dist/latest/nano.html#Command_002dline-Options
+# Run nano as admin
+alias snano='sudo nano'

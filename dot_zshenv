@@ -1,0 +1,100 @@
+#---------- LOADED 1ST (after /etc/zshenv)
+#
+#----------------- ENV VARIABLES FILE V 1.5 -----------------#
+# https://zsh.sourceforge.io/Doc/Release/Files.html#index-zshenv
+# See https://zsh.sourceforge.io/Doc/Release/Parameters.html
+#
+# Defines environment variables before .zshrc is sourced
+# Located at $~/.zshenv
+# Keep light and fast.
+# Anything slow or requiring user interaction --> .zshrc
+#
+# Exporting allows the variable to be accessible by other
+# programs and subshells
+#
+#----- VERSION HISTORY
+# V 1.0     Initial
+# V 1.1     Added 'GLOBAL' section
+# V 1.2.    Added History, Lang, Sources, Terminal, Time Zone,
+#           Visual, consolidated 'exports' from other dotfiles
+# V 1.3     Corrected typing mistakes, combined directories,
+#           sources & exports
+# V 1.4     Added iTerm2 as terminal, added mail
+# V 1.5     Added HISTTIMEFORMAT
+#-----------------------------------------------------------#
+
+#----- DIRECTORIES, SOURCES & EXPORTS
+# Defines the directory where user specific config files
+# should be stored
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Defines where dotfiles should be stored
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh" #&& source $ZDOTDIR/.zprofile
+
+# Defines where the completion dumped files are stored
+export zcompdump=$ZDOTDIR/.zcompdump && source $ZDOTDIR/.zcompdump
+
+
+#---------- SYSTEM SETTINGS
+#----- LANG(uage)
+# Contains current system language
+# Prefer Canadian English and UTF-8
+[[ -z "$LANG" ]] && export LANG=en_CA.UTF-8
+[[ -z "$LC_TIME" ]] && export LC_TIME=$LANG
+
+
+#----- HISTORY
+# History filepath
+export HISTFILE=$ZDOTDIR/.zsh_history
+
+# Maximum events for internal history
+export HISTSIZE=2500
+
+# Maximum events in history file
+export SAVEHIST=2500
+
+# Ignore duplicate entries in history
+export HISTCONTROL=ignoreboth
+
+# Format History Time
+HISTTIMEFORMAT="%Y-%m-%d %T "
+
+
+#----- TIME ZONE
+ # Set the time zone in UTC Time
+TZ="America/Toronto"
+export TZ
+
+
+#---------- SOFTWARE
+#----- BROWSER
+# Command to run default web-browser.
+#export BROWSER="Firefox"
+
+
+#----- EDITOR / VISUAL
+# EDITOR: Command to run lightweight editor. Eg: /usr/bin/nano
+# VISUAL: Command to run editor used for heavy editing tasks. Eg: Vi (Vim)
+#export VISUAL=$EDITOR
+
+# macOS - VS Code as the main editor
+#export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Open Visual Studio Code by typing "code" (or anything else) in terminal
+#code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+
+# Linux - VS Code as the main editor
+#export EDITOR=/usr/bin/vscode
+
+
+#----- TERMINAL
+export COLORTERM=truecolor
+export TERM=xterm-256color
+
+# macOS - Set the default terminal
+#export TERMINAL="iTerm2"
+
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}"

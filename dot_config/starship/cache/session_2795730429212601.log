@@ -1,0 +1,32 @@
+[WARN] - (starship::modules::shell): Error in module `shell`: 
+ --> 1:14
+  |
+1 | [~$indicator~) ]($style)
+  |              ^---
+  |
+  = expected variable, string, textgroup, or conditional
+[WARN] - (starship::modules::shell): Error in module `shell`: 
+ --> 1:14
+  |
+1 | [-$indicator-) ]($style)
+  |              ^---
+  |
+  = expected variable, string, textgroup, or conditional
+[WARN] - (starship::modules::cmd_duration): Error in module `cmd_duration`: 
+ --> 1:12
+  |
+1 |  $duration]($style)
+  |            ^---
+  |
+  = expected EOI, variable, string, textgroup, or conditional
+[ERROR] - (starship::config): Unable to parse the config file: newline in string found at line 147 column 23
+[ERROR] - (starship::config): Unable to parse the config file: newline in string found at line 147 column 23
+[WARN] - (starship::config): Error in 'StarshipRoot' at 'ssh': Unknown key
+[WARN] - (starship::config): Error in 'StarshipRoot' at 'ssh': Unknown key
+[WARN] - (starship::modules::hostname): Error in module `hostname`:
+ --> 1:13
+  |
+1 | [{$hostname$} ssh_symbol ]($style)
+  |             ^---
+  |
+  = expected variable_name

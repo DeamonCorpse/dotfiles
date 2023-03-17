@@ -1,0 +1,322 @@
+: 1677293102:0;echo $SHELL
+: 1677293116:0;cd scripts
+: 1677293119:0;nano meslo_font.sh
+: 1677293174:0;./meslo_font.sh
+: 1677293355:0;nano .profile
+: 1677293450:0;mkdir zsh
+: 1677293524:0;nano .linux-aliases
+: 1677293561:0;nano .zfunctions
+: 1677293603:0;mv ~.zshrc ~/.config/zsh
+: 1677293614:0;mv ~/.zshrc ~/.config/zsh
+: 1677293697:0;git clone https://github.com/zsh-users/zsh-autosuggestions.git zsh-autosuggestions
+: 1677293794:0;mkdir zsh-completions
+: 1677293833:0;git clone https://github.com/zsh-users/zsh-completions.git zsh-completions
+: 1677293861:0;mkdir zsh-syntax-highlighting
+: 1677293894:0;git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh-syntax-highlighting
+: 1677294027:0;mv .zcompdump .zsh_history ~/.config/zsh
+: 1677295295:0;sh -c "$(curl -fsLS get.chezmoi.io)"
+: 1677524814:0;cd //Deamon_Flesh
+: 1677525021:0;which cifs-utils
+: 1677525088:0;sudo apt install cifs-utils
+: 1677525269:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=~/.creds
+: 1677525303:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds
+: 1677525895:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds,vers=2.0 -v
+: 1677525903:0;dmesg
+: 1677525979:0;man mount.cifs
+: 1677526133:0;sudo mount.cifs -t //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds,vers=2.0
+: 1677526167:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds,vers=2.0 -t
+: 1677526177:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds,vers=2.0 -V
+: 1677526252:0;sudo nano /etc/sysctl.conf
+: 1677526511:0;sudo sysctl -p
+: 1677526538:0;sudo
+: 1677526713:0;sudo dmesg
+: 1677527098:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o username=Mini-G3,password=cavi1-twain-distrust-CL3AN
+: 1677527110:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o username=Mini-G3,password=cavi1-twain-distrust-CL3AN,domain=DPMINC
+: 1677527290:0;sudo mount.cifs //192.168.68.5/photo ~/Photos -o username=Mini-G3,password=cavi1-twain-distrust-CL3AN,domain=DPMINC
+: 1677527527:0;umount NSFK
+: 1677527939:0;nano .creds
+: 1677527990:0;sudo mount.cifs //192.168.68.5/photo ~/Photos -o credentials=/home/deamon/.creds,vers=2.0
+: 1677528506:0;cd photo
+: 1677528518:0;cd /Videos
+: 1677528751:0;sudo mount.cifs //192.168.68.5/Video ~/Videos -o credentials=/home/deamon/.creds,vers=2.0
+: 1677528793:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds,vers=2.0
+: 1677528890:0;sudo umount NSFK
+: 1677528895:0;sudo mount.cifs //192.168.68.5/NSFW ~/NSFK -o credentials=/home/deamon/.creds,vers=2.0,rw
+: 1677528904:0;cd Nice
+: 1677528920:0;cd ../..
+: 1677529999:0;sudo chown NSFK Photos Videos root
+: 1677530015:0;sudo chown root NSFK Photos Videos
+: 1677530025:0;sudo chmod 0777 NSFK Photos Videos
+: 1677530996:0;cd NSFK
+: 1677531005:0;touch test.txt
+: 1677531012:0;rm test.txt
+: 1677531018:0;cd Videos
+: 1677531303:0;cd Personal
+: 1677531722:0;cd Photos
+: 1677532662:0;PATH=$PATH:~/bin
+: 1677532678:0;docker ps
+: 1677532683:0;sudo docker ps
+: 1677607881:0;cd photoprism
+: 1677607896:0;cd db
+: 1677607901:0;cd~
+: 1677613117:0;cd backups
+: 1677613124:0;mkdir photoprism
+: 1677951359:0;sudo nano /etc/fstab
+: 1678036962:0;mkdir Logs
+: 1678037040:0;cd Logs
+: 1678039163:0;mkdir dbs
+: 1678039213:0;git clone https://github.com/docker/docker-bench-security.git ~/docker/dbs
+: 1678039621:0;cd /etc/
+: 1678039667:0;sudo apt install auditd
+: 1678039725:0;sudo service status auditd
+: 1678039744:0;sudo systemctl status audit
+: 1678039759:0;sudo systemctl status auditd
+: 1678039774:0;sudo systemctl enable auditd
+: 1678040171:0;sudo cd audit
+: 1678040193:0;cd -s audit
+: 1678040294:0;ls -l audit
+: 1678040660:0;cd apparmor
+: 1678040874:0;cd dbs
+: 1678041086:0;sudo systemctl show -p FragmentPath docker.service
+: 1678041107:0;sudo auditctl -l | grep docker.service
+: 1678041195:0;cd /etc/audit/audit.rules
+: 1678041200:0;cd /etc/audit/
+: 1678041273:0;sudo nano /etc/audit/audit.rules
+: 1678041295:0;cd rules.d
+: 1678041334:0;sudo chmod 0755 -r audit
+: 1678041362:0;sudo chmod 0755 audit
+: 1678041396:0;ls -l
+: 1678041417:0;sudo chmod 0755 audit.rules
+: 1678041442:0;cd audit
+: 1678041450:0;sudo nano audit.rules
+: 1678041474:0;sudo systemctl restart auditd
+: 1678041492:0;su
+: 1678041704:0;sudo usermod -aG deamon docker
+: 1678041712:0;sudo usermod -aG docker deamon
+: 1678041714:0;id
+: 1678041952:0;sudo nano /etc/docker/deamon.json
+: 1678042008:0;sudo systemctl restart docker
+: 1678042179:0;cd ~/docker/dbs
+: 1678042186:0;sudo sh docker-bench-security.sh
+: 1678042498:0;cd /etc/init.d
+: 1678042520:0;sudo nano docker
+: 1678044167:0;id dockremap
+: 1678044248:0;cd /etc/docker
+: 1678044258:0;sudo nano deamon.json
+: 1678138629:0;cd docker
+: 1678138637:0;mkdir npm
+: 1678138878:0;cd npm
+: 1678138896:0;sudo chmod 0777 98-themepark-nginx-proxy-manager
+: 1678140662:0;sudo chmod 0644 98-themepark-nginx-proxy-manager
+: 1678140685:0;chmod +x 98-themepark-nginx-proxy-manager
+: 1678308676:0;ufw
+: 1678308688:0;sudo systemctl status ufw
+: 1678309145:0;ip a
+: 1678309165:0;sudo ufw allow all on eno1 from 192.168.68.0/24
+: 1678309181:0;ufw --help
+: 1678309235:0;sudo ufw allow all from 192.168.68.0/24
+: 1678309257:0;sudo ufw app list
+: 1678309313:0;sudo ufw allow from 192.168.68.0/24
+: 1678311196:0;cd ~/docker
+: 1678311204:0;cd cloudbeaver
+: 1678314361:0;cd GlobalConfiguration
+: 1678314371:0;cd .dbeaver
+: 1678730525:0;mkdir ansible
+: 1678730634:0;sudo apt install ansible
+: 1678730668:0;sudo reboot now
+: 1678818440:0;which openssh
+: 1678818453:0;sudo apt install openssh-server
+: 1678819363:0;sudo systemctl enable sshd
+: 1678819377:0;sudo systemctl status ssh
+: 1678819382:0;sudo systemctl enable ssh
+: 1678820633:0;ssh-keygen
+: 1678820687:0;ssh-keygen -t ed25519
+: 1678820768:0;touch config
+: 1678821090:0;fg
+: 1678822016:0;cat docker-server-key.pub
+: 1678822060:0;ssh NAS
+: 1678822085:0;ssh Unraid
+: 1678822419:0;cat authorized_keys
+: 1678822460:0;nano authorized_keys
+: 1678822765:0;ssh-keygen -t ed25519 -C "ansible"
+: 1678823960:0;sudo ssh-copy-id -i ~/.ssh/docker-server-key -p 50666 dpminc@192.168.68.24
+: 1678824181:0;sudo ssh-copy-id -i ~/.ssh/ansible-key -p 50666 dpminc@192.168.68.24
+: 1678824205:0;nano config
+: 1678824373:0;ssh DufourPM
+: 1678840307:0;which git
+: 1678841359:0;cat *.pub
+: 1678841887:0;git clone git@gitlab.com:DeamonCorpse/ansible.git
+: 1678841911:0;git clone https://gitlab.com/DeamonCorpse/ansible.git
+: 1678842244:0;git config --global user.name "DeamonCorpse"
+: 1678842285:0;git config --global user.mail "s.duf69@yahoo.com"
+: 1678842414:0;nano README.md
+: 1678842565:0;git add README.md
+: 1678844535:0;git add inventory
+: 1678844558:0;git push
+: 1678844698:0;ansible all --key-file ~/.ssh/ansible-key -i inventory -m ping -p 50666
+: 1678844843:0;ping 192.168.68.24
+: 1678844927:0;ansible DufourPM --key-file ~/.ssh/ansible-key -i inventory -m ping
+: 1678845020:0;sudo nano /etc/ssh/sshd_config
+: 1678845184:0;cd /etc/ansible
+: 1678845195:0;cd /etc
+: 1678845226:0;ls -lah
+: 1678845349:0;ansible all --key-file ~/.ssh/ansible-key -i inventory -m ping
+: 1678845846:0;cat *.cfg
+: 1678845862:0;cd ~/.ssh
+: 1678846047:0;cat inventory
+: 1678846197:0;ansible all --list-hosts -i ~/ansible/inventory
+: 1678846260:0;nano inventory
+: 1678846719:0;sudo cp inventory inventory.yml
+: 1678846738:0;sudo chown deamon inventory.yml
+: 1678846751:0;rm inventory
+: 1678846761:0;nano ansible
+: 1678847004:0;chmod 777 inventory
+: 1678847010:0;chmod 777 inventory.yml
+: 1678847029:0;chmod 644 inventory.yml
+: 1678847081:0;cd .ansible
+: 1678847230:0;cp ansible.cfg ansible.bak
+: 1678847237:0;rm ansible.cfg
+: 1678847250:0;ansible-config init --disabled -t all > ansible.cfg
+: 1678847278:0;ansible-config init --disabled > ansible.cfg
+: 1678847333:0;ansible --version
+: 1678847595:0;ansible-config list
+: 1678848053:0;ansible all --list-hosts -i ~/ansible/inventory.yml
+: 1678848137:0;cp ansible.bak ansible.cfg
+: 1678848610:0;ansible all --key-file ~/.ssh/ansible-key -i inventory.yml -m ping
+: 1678848685:0;rm y
+: 1678848696:0;rm ansible.bak
+: 1678848777:0;ansible all -m ping
+: 1678848807:0;ansible all --list-hosts
+: 1678848893:0;cat ansible.cfg
+: 1678849000:0;ansible all -m gather_facts
+: 1678849065:0;git status
+: 1678898301:0;ansible all -m apt -a update_cache=true --become --ask-become-pass
+: 1678898857:0;ansible all -m apt -a name=nano --become --ask-become-pass
+: 1678899260:0;ansible all -m apt -a "upgrade=dist" --become -ask-become-pass
+: 1678899291:0;ansible all -m apt -a upgrade=dist --become -ask-become-pass
+: 1678899362:0;ansible all -m apt -a state=latest --become -ask-become-pass
+: 1678899436:0;ansible all -m apt -a autoclean=true --become -ask-become-pass
+: 1678899492:0;sudo apt update && sudo apt upgrade -y
+: 1678899529:0;sudo apt upgrade -y
+: 1678899873:0;mkdir playbooks
+: 1678899892:0;nano update_upgrade
+: 1678906348:0;nano update_upgrade.yml.save
+: 1678906371:0;rm *.save
+: 1678907584:0;cd .ssh
+: 1678907590:0;nano known_hosts
+: 1678907816:0;cd ~/ansible/playbooks
+: 1678909185:0;cd playbooks
+: 1678909237:0;mv update_upgrade.yml ~/ansible/update_upgrade.yml
+: 1678909272:0;nano become.secret
+: 1678909312:0;nano .gitignore
+: 1678910309:0;nano inventory.yml
+: 1678911311:0;ansible-playbook --ask-become-pass update_upgrade.yml
+: 1678911448:0;nano ansible.cfg
+: 1678911921:0;rm become.secret
+: 1678911964:0;rmdir playbooks
+: 1678912404:0;git commit . -m "Initial"
+: 1678914325:0;zsh
+: 1678917487:0;cd ~/.config/starship
+: 1678923041:0;sudo apt update
+: 1678923058:0;sudo apt install chezmoi
+: 1678923062:0;sudo apt install chez-moi
+: 1678923120:0;pwd
+: 1678923428:0;cd bin
+: 1678923508:0;cd /.config/zsh
+: 1678923518:0;cd /.config
+: 1678923526:0;cd zsh
+: 1678923537:0;nano .zshrc
+: 1678923676:0;cd ../starship
+: 1678923739:0;which chezmoi
+: 1679013852:0;nano update_upgrade.yml
+: 1679014159:0;cat update_upgrade.yml
+: 1679014812:0;git add .
+: 1679014836:0;git commit -m "Added `when` statement to playbook"
+: 1679014876:0;git commit -m "Added conditional statements to playbook"
+: 1679014886:0;git push origin main
+: 1679015074:0;cd ~/.config
+: 1679015080:0;cd starship
+: 1679015083:0;nano starship.toml
+: 1679015754:0;git config --list --show-origin
+: 1679015831:0;git config --global init.defaultBranch main
+: 1679015854:0;git config user.name
+: 1679016784:0;nano .zshenv
+: 1679016961:0;cd .config
+: 1679016975:0;cd nano
+: 1679016986:0;nano nanorc
+: 1679017216:0;cd neofetch
+: 1679017511:0;nano config.conf
+: 1679017520:0;neofetch
+: 1679017547:0;cd zsh-autosuggestions
+: 1679017567:0;cd zsh-completions
+: 1679017598:0;cd zsh-syntax-highlighting
+: 1679017609:0;cc ..
+: 1679017629:0;cd Icons
+: 1679017666:0;source ~/.config/zsh/.zshrc
+: 1679017672:0;cd ansible
+: 1679017675:0;git pull
+: 1679018588:0;cd ..
+: 1679018748:0;cd .config/zsh
+: 1679018749:0;ls
+: 1679018758:0;nano .general-aliases
+: 1679018790:0;cat .general-aliases
+: 1679018858:0;cd ~
+: 1679019431:0;cat .gitconfig
+: 1679019692:0;clear
+: 1679020080:0;nano .gitconfig
+: 1679020630:0;exit
+: 1679065523:0;ls
+: 1679065535:0;nano .zshenv
+: 1679065570:0;cd .config/nano
+: 1679065574:0;nano nanorc
+: 1679067490:0;cd ..
+: 1679067527:0;nano .profile
+: 1679068170:0;cd ..
+: 1679068171:0;ls
+: 1679068181:0;cd bin
+: 1679068182:0;ls
+: 1679068196:0;cd chezmoi
+: 1679068201:0;cat chezmoi
+: 1679068212:0;clear
+: 1679068253:0;cd ..
+: 1679068254:0;ls
+: 1679068259:0;cd .config
+: 1679068261:0;ls
+: 1679068352:0;git clone https://github.com/DeamonCorpse/UFW_App_Profiles.git ufw_app_profiles
+: 1679068362:0;cd ..
+: 1679068366:0;nano .gitconfig
+: 1679068388:0;cd .config
+: 1679068391:0;git clone https://github.com/DeamonCorpse/UFW_App_Profiles.git ufw_app_profiles
+: 1679068403:0;cd ufw_app_profiles
+: 1679068405:0;ls
+: 1679068422:0;cd ..
+: 1679068423:0;ls
+: 1679068425:0;cd ..
+: 1679068426:0;ls
+: 1679068483:0;clear
+: 1679069021:0;chezmoi init
+: 1679069023:0;ls
+: 1679069032:0;cd .config
+: 1679069033:0;ls
+: 1679069037:0;cd ..
+: 1679069038:0;ls
+: 1679069045:0;cd bin
+: 1679069047:0;ls
+: 1679069064:0;nano chezmoi
+: 1679069079:0;cd ..
+: 1679069081:0;ls
+: 1679069083:0;cd .local
+: 1679069093:0;cd share
+: 1679069094:0;ls
+: 1679069100:0;cd nano
+: 1679069101:0;ls
+: 1679069105:0;cd ..
+: 1679069108:0;cd chezmoi
+: 1679069109:0;ls
+: 1679069146:0;cd ~
+: 1679069147:0;ls
+: 1679069154:0;cd .ansible
+: 1679069156:0;ls
+: 1679069161:0;cd ..
+: 1679069279:0;chezmoi add .hushlogin .profile .zshenv
+: 1679069293:0;chezmoi add .config

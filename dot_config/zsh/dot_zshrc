@@ -1,0 +1,350 @@
+#!/usr/bin/zsh
+#---------- LOADED 3RD (or 2nd if no .zprofile present)
+#
+#----------------- ZSHRC V 1.7 -----------------#
+# Located at $ZDOTDIR/.zshrc
+# https://zsh.sourceforge.io/Doc/Release/Files.html#index-zshrc
+# ZSH Guide @ https://zsh.sourceforge.io/Guide/zshguide.html
+# See https://zsh.sourceforge.io/Doc/Release/Options.html for `setopt`
+# See https://zsh.sourceforge.io/Guide/zshguide06.html for `completion`
+#
+#---------- VERSION HISTORY
+# V 1.0     Initial
+# V 1.1     Cosmetic changes, Sourcing .functions,
+#           History vars to .zshenv, moved prompt to .zprofile,
+#           added .zshcompletion, added options to completion
+#           system, moved to new ZDOTDIR
+# V 1.2     Added prompt from zprofile, corrections to aliase
+#           file locations
+#
+# V 1.3     Updated p10k & instant prompt
+#
+# V 1.4     Updated file sourcing and adding plugins with functions
+#
+# V 1.5     Added Starship. Removed powerlevel10k
+#
+# V 1.6     Added "STARSHIP_DISTRO" script
+#
+# V 1.7     Added Starship Chache Location
+#-----------------------------------------------#
+
+#---------- KEEP AT THE TOP
+# Load FUNCTIONS
+source $ZDOTDIR/.zfunctions
+
+
+#---------- DETECT OS TYPE & LOAD ALIASES
+case `uname` in
+  Darwin)
+    zsh_add_file ".macos-aliases"
+  ;;
+  Linux)
+    zsh_add_file ".linux-aliases"
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+  msys)
+    # commands
+  ;;
+cygwin)
+    # commands
+  ;;
+esac
+
+
+# Load UNIVERSAL ALIASES
+zsh_add_file ".general-aliases"
+
+
+#----- ENABLE TERMINAL COLOURS
+autoload -U colors && colors
+
+
+#----- PROMPT
+autoload -Uz promptinit
+promptinit
+
+
+#---------- (TAB) COMPLETION SYSTEM
+# https://zsh.sourceforge.io/Doc/Release/Options.html#Completion-4
+
+# "-i" to silently ignore all insecure files and directories
+autoload -Uz compinit
+compinit -i
+
+
+# Include hidden files
+_comp_options+=(globdots)
+
+# Source the completion system file
+#source '$ZDOTDIR/.zshcompletion'
+
+
+# Set completers to use in order
+zstyle ':completion:*' completer _expand _history _complete _ignored _approximate
+
+
+# Make Descriptions and Warnings look pretty
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+
+# Always to expand unambiguous prefixes in a path / Allows extra unambiguous
+### parts to be added even after the first ambiguous one.
+zstyle ':completion:*' expand prefix suffix
+
+
+# Option does not have a special description, but they do have a single
+### following argument, which completion already knows about
+zstyle ':completion:*' auto-description 'specify: %d'
+
+
+# Do not enter menu completion straight away
+zstyle ':completion:*' insert-unambiguous false
+
+
+# Display lists of matches for files in different (standard set) colours ### depending on the file type
+zstyle ':completion:*' list-colors ''
+
+
+# List all the possible values of all ambiguous components from the point of
+### ambiguity onward
+zstyle ':completion:*' list-suffixes true
+
+
+# How the matching between characters already typed on the command line and
+### characters in a trial completion is performed
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
+
+
+# If an ambiguous completion produces at least <NUM> possibilities, menu
+### selection is started
+zstyle ':completion:*' menu select=2
+
+
+# Original value is always treated as a possible completion, even if it
+### doesn't match anything and even if nothing else matched
+zstyle ':completion:*' original true
+
+
+# Retain the prefix
+zstyle ':completion:*' keep-prefix '//[^/]##/y'
+
+
+# The function generating the matches may, at its discretion, decide to show
+### more information about them
+zstyle ':completion:*' verbose true
+
+# Allow use of "old style" completion
+zstyle ':completion:*' use-compctl true
+
+# Assigns a different group name for each tag
+zstyle ':completion:*' group-name ''
+
+# Helps identify where the completions come from using special formating
+zstyle ':completion:*' format 'Completing %d'
+
+# Specify individual output columns cpu, tty, cputime and cmd
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Turns the process number red
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+#----- ACTIVATE OPTIONS
+# Move the cursor to the end of the word after accepting a completion
+setopt ALWAYS_TO_END
+
+# Automatically use menu completion after the second consecutive request for completion
+setopt AUTO_MENU
+
+# If you type TAB + ⇥ in the middle of a word, the cursor will move to the end of the
+# word and zsh will open the completions menu
+setopt COMPLETE_IN_WORD
+
+# Disables the use of ⌃S to stop terminal output and the use of ⌃Q to resume it
+setopt FLOW_CONTROL
+
+# Treat the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation
+setopt EXTENDED_GLOB
+
+# Print an error for an unmatched file pattern name, instead of leaving it
+### unchanged in the argument list
+setopt NOMATCH
+
+# Report the status of background jobs immediately
+setopt NOTIFY
+
+
+#----- DEACTIVATE OPTIONS
+# Do not beep on error
+unsetopt BEEP
+
+
+#---------- DEFAULT OPTIONS
+#----- Enable COMMAND CORRECTIONS
+# Try to correct the spelling of all arguments in a line
+setopt CORRECT_ALL
+
+
+#----- Display EXPLICIT CHOICE Options
+export SPROMPT="Correct %R to %r? [Yes, No, Abort, Edit] "
+export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [Yes, No, Abort, Edit] "
+
+
+#----- HISTORY
+# Add to history instead of replacing it
+setopt APPEND_HISTORY
+
+# Time stamp history
+setopt EXTENDED_HISTORY
+
+# Remove superfluous blanks from each command line
+setopt HIST_REDUCE_BLANKS
+
+# Trim duplicated commands from history before trimming unique commands
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# Remove command lines from the history list when the first character on the
+### line is a space
+setopt HIST_IGNORE_SPACE
+
+# Do not add duplicates
+setopt HIST_IGNORE_ALL_DUPS
+
+# Ignore commands preceded with a space
+setopt HIST_IGNORE_SPACE
+
+# Share command history between active shell sessions
+setopt SHARE_HISTORY
+
+
+#----- Enable CHANGE DIRECTORIES
+# cd runs if a valid command is not found
+setopt AUTO_CD
+
+# Push the old directory onto the directory stack
+setopt AUTO_PUSHD
+
+# Only 1 copy of a directory onto the directory stack
+setopt PUSHD_IGNORE_DUPS
+
+# Replace ‘+’ and ‘-’ when used with a number to a directory in the stack
+setopt PUSHD_MINUS
+
+# Menu selection is started immediately
+zstyle ':completion:*:*:cdr:*:*' menu selection
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 50
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-pushd true
+
+
+#---------- Populate DIRECTORY STACK
+# when using the `d` alias, directories are displayed with a number which can
+### then be selected
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+#---------- PATH
+#----- MacPorts
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+
+#----- EXA
+PATH="$HOME/.cargo/bin${PATH:+:${PATH}}"
+
+#----- CHEZMOI
+# Available at https://github.com/twpayne/chezmoi
+if [ -d ~/bin ]
+then
+  PATH=$PATH:~/bin
+fi
+
+
+#---------- PLUGINS & THEMES
+zsh_add_plugin "zsh-users/zsh-completions"
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+#zsh_add_plugin "romkatv/powerlevel10k"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+
+
+#----- COMPLETIONS
+# Github Repo @ https://github.com/zsh-users/zsh-completions
+# Completion List @ https://github.com/zsh-users/zsh-completions/tree/master/src
+source ~/.config/zsh-completions/zsh-completions.plugin.zsh
+
+
+#----- AUTOSUGGESTIONS
+# Github Repo @ https://github.com/zsh-users/zsh-autosuggestions
+source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+#---------- iTERM2 SHELL INTEGRATIONS
+#----- macOS
+#function iterm2_print_user_vars() {
+#  iterm2_set_user_var badge $(dir_badges)
+#}
+
+#function dir_badges() {
+#    while read directory badge || [[ -n "$directory" ]]
+#    do
+#    if [[ "$PWD" == $directory* ]]; then
+#        echo $badge
+#        break
+#    fi
+#    done < ~/.badges
+#}
+
+
+#---------- KEEP LAST
+#----- SYNTAX HIGHLIGHTING
+# https://github.com/zsh-users/zsh-syntax-highlighting
+source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+#----- FIND OUT RUNNING LINUX DISTRIBUTION
+# Which distribution are we running
+LFILE="/etc/*-release"
+MFILE="/System/Library/CoreServices/SystemVersion.plist"
+if [[ -f $LFILE ]]; then
+  _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
+elif [[ -f $MFILE ]]; then
+  _distro="macos"
+fi
+
+# Set distro icon
+# Font needs to be compatible with https://github.com/lukas-w/font-logos
+case $_distro in
+    *kali*)                  ICON="ﴣ";;
+    *arch*)                  ICON="";;
+    *debian*)                ICON="";;
+    *raspbian*)              ICON="";;
+    *ubuntu*)                ICON="";;
+    *elementary*)            ICON="";;
+    *fedora*)                ICON="";;
+    *coreos*)                ICON="";;
+    *gentoo*)                ICON="";;
+    *mageia*)                ICON="";;
+    *centos*)                ICON="";;
+    *opensuse*|*tumbleweed*) ICON="";;
+    *sabayon*)               ICON="";;
+    *slackware*)             ICON="";;
+    *linuxmint*)             ICON="";;
+    *alpine*)                ICON="";;
+    *aosc*)                  ICON="";;
+    *nixos*)                 ICON="";;
+    *devuan*)                ICON="";;
+    *manjaro*)               ICON="";;
+    *rhel*)                  ICON="";;
+    *macos*)                 ICON="";;
+    *)                       ICON="";;
+esac
+
+export STARSHIP_DISTRO="$ICON"
+
+
+#----- ENABLE STARSHIP
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CACHE=~/.config/starship/cache
+eval "$(starship init zsh)"

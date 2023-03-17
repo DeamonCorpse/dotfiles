@@ -1,0 +1,66 @@
+#----------------- LINUX ALIASES V 1.3 -----------------#
+# Located at $ZDOTDIR/.linux-aliases
+#
+#----- VERSION HISTORY
+# V 1.0     Initial
+# V 1.1     Cosmetic changes
+# V 1.2     Added APT aliases
+# V 1.3     Added PACMAN aliases
+#-------------------------------------------------------#
+
+#---------- PACKAGE MANAGERS
+# Using snap
+alias snap='sudo snap'
+
+#----- APT (Debian-based)
+# Update package list
+alias update='sudo apt update'
+
+# Upgrade packages
+alias upgrade='sudo apt upgrade -y'
+
+# Update & Upgrade
+alias u2='sudo apt update && sudo apt upgrade -y'
+
+# Install package
+alias install='sudo apt install'
+
+# Remove package
+alias remove='sudo apt remove'
+
+# Search
+alias search='sudo apt search'
+
+
+#----- PACMAN (Arch-based)
+# Update package list
+#alias update='sudo pacman -Sy'
+
+# Update & Upgrade
+#alias upgrade='sudo -Syu'
+
+# Install package
+#alias install='sudo pacman -S'
+
+# Remove package & uneeded dependencies
+#alias remove='sudo pacman -Rsc'
+
+# List all packages no longer required as dependencies
+#alias rdep='sudo pacman -Qdt'
+
+# Search
+#alias search='sudo pacman -Ss'
+
+# List installed packages
+#alias installed='sudo pacman -Q'
+
+
+#---------- PROGRAMS
+#----- CMATRIX
+# Run cmatrix 
+alias cmatrixl='cmatrix -lba'
+
+
+#----- UFW
+# Run UFW as admin
+alias ufw='sudo ufw'

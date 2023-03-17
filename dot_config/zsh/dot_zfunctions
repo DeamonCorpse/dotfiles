@@ -1,0 +1,69 @@
+#---------- SOURCED BY .zshrc
+#
+#------------------ ZFUNCTIONS FILE V 1.1 ------------------#
+# Located at $ZDOTDIR/.zfunctions
+#
+#---------- VERSION HISTORY
+# V 1.0     Initial
+#
+# V 1.1    Added source files, add plugins
+#------------------------------------------------------------------------#
+
+#---------- SOURCE FILES IF THEY EXIST
+function zsh_add_file() {
+    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+
+#---------- ADD PLUGINS
+function zsh_add_plugin() {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    if [ -d "$XDG_CONFIG_HOME/$PLUGIN_NAME" ]; then
+        # For plugins
+        zsh_add_file "$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+        zsh_add_file "$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+    else
+        git clone "https://github.com/$1.git" "$XDG_CONFIG_HOME/$PLUGIN_NAME"
+    fi
+}
+
+
+#---------- NEW DIRECTORIES
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+
+#---------- FILE / DIRECTORY SIZE
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+
+#---------- OPEN MAN PAGES AS PDF on macOS
+function manpdf() {
+ #man -t "${1}" | open -f -a /Applications/Preview.app/
+ man -t "${1}" | open -a "/Applications/PDF Expert.app/"
+}
+
+
+#---------- ZSH OPTIMIZATIONS
+# Compiling Completion Dumped Files in the Background
+{
+  # Compile zcompdump, if modified, to increase startup speed.
+  zcompdump="$ZDOTDIR/.zcompdump"
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]] then
+    zcompile "$zcompdump"
+  fi
+} &!
