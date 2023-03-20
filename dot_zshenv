@@ -42,7 +42,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
 
 # Defines where dotfiles should be stored
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh" && source $ZDOTDIR/.zprofile
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh" #&& source $ZDOTDIR/.profile
 
 # Defines where the completion dumped files are stored
 export zcompdump=$ZDOTDIR/.zcompdump && source $ZDOTDIR/.zcompdump
