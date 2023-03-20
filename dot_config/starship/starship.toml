@@ -75,7 +75,7 @@ disabled = false
 style_root = 'bg:#3E4C59 fg:#28B9FF'
 style_user = 'bg:#3E4C59 fg:#F1F1F1'
 show_always = true
-format = '[🜏 $user]($style)'
+format = '[ 🜏 $user]($style)'
 
 [hostname]
 disabled = false
