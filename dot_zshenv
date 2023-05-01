@@ -94,7 +94,7 @@ export TZ
 #export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Open Visual Studio Code by typing "code" (or anything else) in terminal
-#code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 
 # Linux - VS Code as the main editor
