@@ -38,10 +38,10 @@ source $ZDOTDIR/.zfunctions
 #---------- DETECT OS TYPE & LOAD ALIASES
 case `uname` in
   Darwin)
-    zsh_add_file ".macos-aliases"
+    zsh_add_file "~/.config/zsh/.macos-aliases"
   ;;
   Linux)
-    zsh_add_file ".linux-aliases"
+    zsh_add_file "~/.config/zsh/.linux-aliases"
   ;;
   FreeBSD)
     # commands for FreeBSD go here
@@ -56,7 +56,7 @@ esac
 
 
 # Load UNIVERSAL ALIASES
-zsh_add_file ".general-aliases"
+zsh_add_file "~/.config/zsh/.general-aliases"
 
 
 #----- ENABLE TERMINAL COLOURS

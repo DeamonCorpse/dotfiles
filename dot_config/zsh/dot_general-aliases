@@ -1,9 +1,10 @@
-#----------------- GENERAL ALIASES V 1.1 -----------------#
+#----------------- GENERAL ALIASES V 1.2 -----------------#
 # Located at $ZDOTDIR.general-aliases
 #
 #----- VERSION HISTORY
 # V 1.0     Initial
 # V 1.1     Cosmetic changes
+# V 1.2     Removed git bare repo, some cleanup
 #---------------------------------------------------------#
 
 #---------- SYSTEM
@@ -81,17 +82,14 @@ alias cd3='cd ../../..'
 
 #----- LS
 # Using exa. ref: https://github.com/ogham/exa#command-line-options
-# List all files, including '.' '..'
-alias la='exa -lama --group-directories-first --color=always --icons'
-
-# List all files
-alias ls='exa -lam --group-directories-first --color=always --icons'
+# List all files except '.' '..'
+alias ls='exa -lam --group-directories-first --git --color=always --icons'
 
 # List files (short format)
-alias ls2='exa -m --group-directories-first --color=always --icons'
+alias lss='exa -m --group-directories-first --git --color=always --icons'
 
 # List only directories
-alias ld='exa -D --color=always --icons'
+alias lsd='exa -D --git --color=always --icons'
 
 
 #----- MV / RM
@@ -103,14 +101,17 @@ alias ld='exa -D --color=always --icons'
 
 
 #----- OTHERS
-# Edit .zshrc in vs code
-alias zshrc='code ~/.zshrc'
+# Edit .zshrc (replace nano with 'code' to edit in vs code)
+alias zshrc='nano ~/.config/zsh/.zshrc'
 
 # Refresh/restart terminal
-alias reload='source ~/.zshrc'
+alias reload='source ~/.config/zsh/.zshrc'
 
 # Edit sshd_config file
 alias sshd='sudo nano /etc/ssh/sshd_config'
+
+# Edit fstab file
+alias fstab='sudo nano /etc/fstab'
 
 
 #---------- SOFTWARE
@@ -132,26 +133,20 @@ alias dockr='docker run'
 
 
 #----- GIT
-# Add file to staging area
-alias ga='git add'
+# Add all files to staging area
+alias ga='git add .'
+
+# Commit file(s) with a message
+alias gc='git commit -m'
 
 # Add and commit all files with a comming message
 alias gac='git add . && git commit -m'
 
-# Commit file with a message
-alias gc='git commit -m'
-
 # List differences between local and remote repo
 alias gdiff='git diff'
 
-# Get repo logs
-alias gl='git log'
-
 # Get formatted repo log
-alias glo='git log --pretty="oneline"'
-
-# Get repo logs
-alias glol='git log --graph --oneline --decorate'
+alias gl='git log --pretty="oneline"'
 
 # Push changes
 alias gp='git push'
@@ -167,12 +162,6 @@ alias grao='git remote add origin'
 
 # get repo status
 alias gstat='git status'
-
-# Git Bare Directory - macOS
-#alias dotfiles="/usr/bin/git --git-dir=$HOME/git/mac-dotfiles.git/ --work-tree=$HOME"
-
-# Git Bare Directory - Linux
-alias dotfiles="/usr/bin/git --git-dir=$HOME/git/linux-dotfiles.git/ --work-tree=$HOME"
 
 
 #----- NANO
