@@ -9,7 +9,7 @@
 
 #---------- SYSTEM
 #----- HARDWARE
-# Get info about file systemn disk space usage
+# Get info about file system disk space usage
 alias df='sudo df'
 
 # Create and manipulate partition tables
@@ -50,17 +50,11 @@ alias pydf='sudo pydf'
 # Print distro details
 alias distro='cat /etc/*-release'
 
-# Swith to Administrator user
-alias sua='su Administrator'
-
 # Immediately Shutdown system
 alias shutdown='sudo shutdown now'
 
 # Reboot system
 alias restart='sudo reboot'
-
-# Clear the screen
-alias cl='clear'
 
 
 #---------- FILES & DIRECTORIES
@@ -83,10 +77,10 @@ alias cd3='cd ../../..'
 #----- LS
 # Using exa. ref: https://github.com/ogham/exa#command-line-options
 # List all files except '.' '..'
-alias ls='exa -lam --group-directories-first --git --color=always --icons'
+alias ls='exa -lam --group-directories-first --color=always --icons'
 
 # List files (short format)
-alias lss='exa -m --group-directories-first --git --color=always --icons'
+alias lss='exa -m --group-directories-first --color=always --icons'
 
 # List only directories
 alias lsd='exa -D --git --color=always --icons'
@@ -151,7 +145,7 @@ alias gl='git log --pretty="oneline"'
 # Push changes
 alias gp='git push'
 
-# Push changes from the local `origin` branch to main remote repo branch
+# Push changes from the local `origin` branch to `main` remote repo branch
 alias gpo='git push origin'
 
 # Pull changes from main repo
