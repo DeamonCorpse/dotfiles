@@ -1,10 +1,11 @@
-#----------------- GENERAL ALIASES V 1.2 -----------------#
+#----------------- GENERAL ALIASES V 1.3 -----------------#
 # Located at $ZDOTDIR.general-aliases
 #
 #----- VERSION HISTORY
 # V 1.0     Initial
 # V 1.1     Cosmetic changes
 # V 1.2     Removed git bare repo, some cleanup
+# V 1.3     Moved all Git Aliases to .gitconfig
 #---------------------------------------------------------#
 
 #---------- SYSTEM
@@ -124,38 +125,6 @@ alias dockps='docker ps'
 
 # Run a container
 alias dockr='docker run'
-
-
-#----- GIT
-# Add all files to staging area
-alias ga='git add .'
-
-# Commit file(s) with a message
-alias gc='git commit -m'
-
-# Add and commit all files with a comming message
-alias gac='git add . && git commit -m'
-
-# List differences between local and remote repo
-alias gdiff='git diff'
-
-# Get formatted repo log
-alias gl='git log --pretty="oneline"'
-
-# Push changes
-alias gp='git push'
-
-# Push changes from the local `origin` branch to `main` remote repo branch
-alias gpo='git push origin'
-
-# Pull changes from main repo
-alias gpo='git pull origin'
-
-# Add remote main repo
-alias grao='git remote add origin'
-
-# get repo status
-alias gstat='git status'
 
 
 #----- NANO
