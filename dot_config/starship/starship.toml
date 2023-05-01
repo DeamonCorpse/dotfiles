@@ -1,4 +1,4 @@
-#-------------------- STARSHIP CONFIG V 1.2 --------------------#
+#-------------------- STARSHIP CONFIG V 1.3 --------------------#
 # ALL options are explained at
 #   https://starship.rs/config
 #   https://starship.rs/advanced-config/#custom-pre-prompt-and-pre-execution-commands-in-bash
@@ -12,7 +12,8 @@
 #----- VERSION HISTORY
 # V 1.0.    Initial
 # V 1.1     Tweaks to colour scheme
-# V 1.2     Updates to the Prompt Layout & Removed disabled items
+# V 1.2     Updates to the prompt layout & removed disabled items
+# V 1.3     Colour and symbol tweaks
 #--------------------------------------------------------------#
 
 #----- PROMPT
@@ -21,18 +22,19 @@ add_newline = true
 
 #--- LEFT Prompt Format
 format = """
-[](#121212)\
+[](#191B21)\
 $env_var$shell\
-[](bg:#121212 fg:#3E4C59)\
-$sudo\
+[🜏 ](bg:#191B21 fg:#CD3131)\
+[](bg:#191B21 fg:#424959)\
 $username\
-$localip\
 $hostname\
-[](bg:#3E4C59 fg:#657B83)\
+$localip\
+[](bg:#424959 fg:#262A33)\
 $directory\
-[](#657B83)\
+[](#262A33)\
 $character
-[ ](#4CAF50)"""
+$sudo\
+[  ](#04BC79)"""
 
 #--- RIGHT Prompt Format
 right_format = """
@@ -50,13 +52,13 @@ enabled = true
 [env_var.STARSHIP_DISTRO]
 disabled = false
 format = '[$env_value ]($style)'
-style = 'bg:#121212 fg:#666666'
+style = 'bg:#191B21 fg:#E5E5E5'
 variable = 'STARSHIP_DISTRO'
 
 [shell]
 disabled = false
-style = 'bg:#121212 italic fg:#666666'
-format = '[-$indicator- ]($style)'
+style = 'bg:#191B21 italic fg:#666666'
+format = '[/>$indicator ]($style)'
 bash_indicator = 'bash'
 zsh_indicator = 'zsh'
 powershell_indicator = 'ps'
@@ -66,35 +68,35 @@ unknown_indicator = '?'
 [sudo]
 disabled = false
 format = '[$symbol]($style)'
-symbol = 'ⓢ'
-style = 'bg:#3E4C59 fg:#28B9FF'
+symbol = ' ⓢ'
+style = 'fg:#E5E512'
 allow_windows = false
 
 [username]
 disabled = false
-style_root = 'bg:#3E4C59 fg:#28B9FF'
-style_user = 'bg:#3E4C59 fg:#F1F1F1'
+style_root = 'bg:#424959 fg:#E5E512'
+style_user = 'bg:#424959 fg:#E5E5E5'
 show_always = true
-format = '[ 🜏 $user]($style)'
+format = '[$user]($style)'
 
 [hostname]
 disabled = false
 ssh_only = false
 ssh_symbol = 'ₛₛₕ'
-format = '[{$hostname}$ssh_symbol]($style)'
+format = '[@$hostname$ssh_symbol]($style)'
 trim_at = '.'
-style = 'bg:#3E4C59 italic fg:#28B9FF'
+style = 'bg:#424959 fg:#E5E5E5'
 
 [localip]
-disabled = false
+disabled = true
 ssh_only = true
-style = 'bg:#3E4C59 italic fg:#28B9FF'
-format = '[@$localipv4]($style)'
+style = 'bg:#424959 italic fg:#262A33'
+format = '[ $localipv4]($style)'
 
 [directory]
 disabled = false
-style = 'bg:#657B83 fg:#CBD2D9'
-read_only_style = 'bg:#657B83 fg:#EAF600'
+style = 'bg:#262A33 fg:#CBD2D9'
+read_only_style = 'bg:#262A33 fg:#CD3131'
 format = '[$path ]($style)[$read_only]($read_only_style)'
 truncation_length = 10
 truncation_symbol = '.../'
@@ -118,32 +120,33 @@ read_only = ' '
 "~/pictures" = ''
 "~/Videos" = ''
 "~/videos" = ''
-".config" = ''
+"~/.config" = ''
 
 [character]
-success_symbol = "[ ✔](green)"
-error_symbol = "[ ✘](red)"
+success_symbol = "[ ✔](#05BC79)"
+error_symbol = "[ ✘](#CD3131)"
 
+#--- RIGHT SIDE
 #--- RIGHT SIDE
 [git_branch]
 disabled = false
 always_show_remote = false
 symbol = ' '
-style = 'italic fg:#C9510C'
+style = 'italic fg:#F14E32'
 format = '[$symbol$branch(:$remote_name $remote_branch)]($style)'
 truncation_length = 10
 truncation_symbol = '.../'
 
 [git_status]
 disabled = false
-style = 'fg:#C9510C italic'
+style = 'fg:#F14E32 italic'
 format = '[$all_status]($style)'
 conflicted = ':${count} '
 ahead = '⇡:${count} '
 behind = '⇣:${count} '
 diverged = '⇕:${count} '
 untracked = '?:${count} '
-modified = '!:${count} ' 
+modified = '!:${count} '
 staged = '+:${count} '
 deleted = ':✘${count} '
 
