@@ -18,8 +18,7 @@
 # V 1.4     Disabled $time
 # V 1.5     New colour scheme
 #--------------------------------------------------------------#
-
-#----- PROMPT
+#---------- PROMPT
 # No new line at the start of the prompt
 add_newline = true
 
@@ -43,7 +42,8 @@ $docker_context\
 $cmd_duration\
 [ 🜏](#cd3131)"""
 
-#----- PACKAGE MODULEs
+
+#---------- PACKAGE MODULEs
 #--- ENABLED
 [line_break]
 enabled = true
@@ -120,7 +120,7 @@ read_only = ''
 success_symbol = "[ ✔](#05BC79)"
 error_symbol = "[ ✘](#CD3131)"
 
-#--- RIGHT SIDE
+
 #--- RIGHT SIDE
 [git_branch]
 disabled = false
