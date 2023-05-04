@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 #---------- LOADED 3RD (or 2nd if no .zprofile present)
 #
-#----------------- ZSHRC V 1.8 -----------------#
+#------------------- ZSHRC V 1.10 -------------------#
 # Located at $ZDOTDIR/.zshrc
 # https://zsh.sourceforge.io/Doc/Release/Files.html#index-zshrc
 # ZSH Guide @ https://zsh.sourceforge.io/Guide/zshguide.html
@@ -28,7 +28,11 @@
 # V 1.7     Added Starship Chache Location
 #
 # V 1.8     Added Tabby integration
-#-----------------------------------------------#
+#
+# V 1.9     Added $HOME/.local/bin to PATH
+#
+# V 1.10    Added bat to PATH, replacing man command
+#---------------------------------------------------#
 
 #---------- KEEP AT THE TOP
 # Load FUNCTIONS
@@ -249,12 +253,11 @@ alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 #---------- PATH
-#----- MacPorts
-#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+#----- ANSIBLE
+PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 
-
-#----- EXA
-PATH="$HOME/.cargo/bin${PATH:+:${PATH}}"
+#----- BAT
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 #----- CHEZMOI
 # Available at https://github.com/twpayne/chezmoi
@@ -263,6 +266,11 @@ then
   PATH=$PATH:~/bin
 fi
 
+#----- EXA
+PATH="$HOME/.cargo/bin${PATH:+:${PATH}}"
+
+#----- MacPorts
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 #---------- PLUGINS & THEMES
 zsh_add_plugin "zsh-users/zsh-completions"

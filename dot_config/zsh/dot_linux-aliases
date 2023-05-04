@@ -1,4 +1,4 @@
-#----------------- LINUX ALIASES V 1.3 -----------------#
+#----------------- LINUX ALIASES V 1.4 -----------------#
 # Located at $ZDOTDIR/.linux-aliases
 #
 #----- VERSION HISTORY
@@ -6,6 +6,7 @@
 # V 1.1     Cosmetic changes
 # V 1.2     Added APT aliases
 # V 1.3     Added PACMAN aliases
+# V 1.4     Added BAT aliase
 #-------------------------------------------------------#
 
 #---------- PACKAGE MANAGERS
@@ -56,8 +57,11 @@ alias search='sudo apt search'
 
 
 #---------- PROGRAMS
+#----- BAT
+alias bcat = 'bat --paging=never'
+
 #----- CMATRIX
-# Run cmatrix 
+# Run cmatrix
 alias cmatrixl='cmatrix -lba'
 
 
