@@ -1,4 +1,4 @@
-#------------------ STARSHIP CONFIG V 1.4 --------------------#
+#------------------ STARSHIP CONFIG V 1.5 --------------------#
 # ALL options are explained at
 #   https://starship.rs/config
 #   https://starship.rs/advanced-config/#custom-pre-prompt-and-pre-execution-commands-in-bash
@@ -16,6 +16,7 @@
 # V 1.3     Colour and symbol tweaks. Removed $localip
 # V 1.3.1   Minor appearance tweaks
 # V 1.4     Disabled $time
+# V 1.5     New colour scheme
 #--------------------------------------------------------------#
 
 #----- PROMPT
@@ -24,24 +25,23 @@ add_newline = true
 
 #--- LEFT Prompt Format
 format = """
-[](#191B21)\
-[🜏](bg:#191B21 fg:#CD3131)\
 $env_var\
-$sudo\
-[](bg:#191B21 fg:#424959)\
-$username\
-$hostname\
-[](bg:#424959 fg:#262A33)\
-$directory\
-[](#262A33)$character
 $shell\
+[](fg:#262A33)\
+$username\
+$sudo\
+$hostname\
+[](bg:#262A33 fg:#424959)\
+$directory\
+[](#424959)$character
 [  ](#04BC79)"""
 
 #--- RIGHT Prompt Format
 right_format = """
 $git_branch $git_status\
 $docker_context\
-$cmd_duration"""
+$cmd_duration\
+[ 🜏](#cd3131)"""
 
 #----- PACKAGE MODULEs
 #--- ENABLED
@@ -51,14 +51,14 @@ enabled = true
 #--- LEFT SIDE
 [env_var.STARSHIP_DISTRO]
 disabled = false
-format = '[$env_value ]($style)'
-style = 'bg:#191B21 fg:#E5E5E5'
+format = '[ $env_value ]($style)'
+style = 'fg:#666666'
 variable = 'STARSHIP_DISTRO'
 
 [shell]
 disabled = false
-style = 'bg:#191B21 italic fg:#666666'
-format = '[ />$indicator]($style)'
+style = 'italic fg:#666666'
+format = '[/>$indicator ]($style)'
 bash_indicator = 'bash'
 zsh_indicator = 'zsh'
 powershell_indicator = 'ps'
@@ -67,15 +67,15 @@ unknown_indicator = '?'
 
 [sudo]
 disabled = false
-format = '[$symbol ]($style)'
+format = '[$symbol]($style)'
 symbol = 'ⓢ'
-style = 'fg:#E5E512'
+style = 'bg:#262A33 fg:#E5E512'
 allow_windows = false
 
 [username]
 disabled = false
-style_root = 'bg:#424959 fg:#E5E512'
-style_user = 'bg:#424959 fg:#E5E5E5'
+style_root = 'bg:#262A33 fg:#E5E512'
+style_user = 'bg:#262A33 fg:#E5E5E5'
 show_always = true
 format = '[$user]($style)'
 
@@ -85,13 +85,13 @@ ssh_only = false
 ssh_symbol = 'ₛₛₕ'
 format = '[@$hostname$ssh_symbol ]($style)'
 trim_at = '.'
-style = 'bg:#424959 fg:#E5E5E5'
+style = 'bg:#262A33 fg:#E5E5E5'
 
 [directory]
 disabled = false
-style = 'bg:#262A33 fg:#CBD2D9'
-read_only_style = 'bg:#262A33 fg:#CD3131'
-format = '[ $path]($style)[$read_only ]($read_only_style)'
+style = 'bg:#424959 fg:#CBD2D9'
+read_only_style = 'bg:#424959 fg:#CD3131'
+format = '[$path]($style)[$read_only]($read_only_style)'
 truncation_length = 10
 truncation_symbol = '.../'
 use_logical_path = true
