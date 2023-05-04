@@ -58,7 +58,7 @@ alias search='sudo apt search'
 
 #---------- PROGRAMS
 #----- BAT
-alias bcat = 'bat --paging=never'
+alias bcat='bat --paging=never'
 
 #----- CMATRIX
 # Run cmatrix
