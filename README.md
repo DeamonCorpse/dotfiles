@@ -19,8 +19,12 @@ chezmoi update
 - [Reference](https://www.chezmoi.io/reference/)
 
 ## Deployment
-To use these dotfiles on a computer, run:
-
+- To use these dotfiles on a computer which already has chezmoi installed:
 ```bash
   chezmoi init git@github.com:DeamonCorpse/dotfiles.git
+```
+
+- To use on a computer where chezmoi *is not* installed:
+- ``` bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:DeamonCorpse/dotfiles.git
 ```
