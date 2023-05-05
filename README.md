@@ -4,7 +4,7 @@ Dotfiles saving and syncing between all my devices (ultimate goal) using [chezmo
 ## Installation
 - chezmoi can be installed with:
 ``` bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply DeamonCorpse
+sh -c "$(curl -fsLS get.chezmoi.io)"
 ```
 
 - It can be updated with:
@@ -25,6 +25,6 @@ chezmoi update
 ```
 
 - To use on a computer where chezmoi *is not* installed:
-- ``` bash
+``` bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:DeamonCorpse/dotfiles.git
 ```
