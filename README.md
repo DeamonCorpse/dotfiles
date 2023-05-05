@@ -4,7 +4,7 @@ Dotfiles saving and syncing between all my devices (ultimate goal) using [chezmo
 ## Installation
 - chezmoi can be installed with:
 ``` bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply DeamonCorpse
 ```
 
 - It can be updated with:
